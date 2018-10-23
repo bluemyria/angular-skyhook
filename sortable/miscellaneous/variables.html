@@ -1,0 +1,389 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@angular-skyhook/sortable documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">@angular-skyhook/sortable documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Miscellaneous</li>
+  <li>Variables</li>
+</ol>
+
+<section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#EXTERNAL_LIST_ID" title="src/directives/external.directive.ts"><b>EXTERNAL_LIST_ID</b>&nbsp;&nbsp;&nbsp;(src/.../external.directive.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getSuggester" title="src/hoverTriggers.ts"><b>getSuggester</b>&nbsp;&nbsp;&nbsp;(src/.../hoverTriggers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SPILLED_LIST_ID" title="src/spillTarget.ts"><b>SPILLED_LIST_ID</b>&nbsp;&nbsp;&nbsp;(src/.../spillTarget.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#spillTarget" title="src/spillTarget.ts"><b>spillTarget</b>&nbsp;&nbsp;&nbsp;(src/.../spillTarget.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#suggestFixed" title="src/hoverTriggers.ts"><b>suggestFixed</b>&nbsp;&nbsp;&nbsp;(src/.../hoverTriggers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#suggestHalfway" title="src/hoverTriggers.ts"><b>suggestHalfway</b>&nbsp;&nbsp;&nbsp;(src/.../hoverTriggers.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/directives/external.directive.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="EXTERNAL_LIST_ID"></a>
+                        <span class="name">
+                            <b>
+                            EXTERNAL_LIST_ID
+                            </b>
+                            <a href="#EXTERNAL_LIST_ID"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>EXTERNAL_LIST_ID:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Symbol(&quot;EXTERNAL_LIST_ID&quot;)</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/hoverTriggers.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getSuggester"></a>
+                        <span class="name">
+                            <b>
+                            getSuggester
+                            </b>
+                            <a href="#getSuggester"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>getSuggester:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>(trigger: HoverTrigger) &#x3D;&gt; {
+    switch (trigger) {
+        case HoverTrigger.fixed:
+            return suggestFixed;
+        default:
+            return suggestHalfway;
+    }
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="suggestFixed"></a>
+                        <span class="name">
+                            <b>
+                            suggestFixed
+                            </b>
+                            <a href="#suggestFixed"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>suggestFixed:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&lt;Data&gt;(ctx: RenderContext&lt;Data&gt;) &#x3D;&gt; {
+    return ctx.index;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="suggestHalfway"></a>
+                        <span class="name">
+                            <b>
+                            suggestHalfway
+                            </b>
+                            <a href="#suggestHalfway"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>suggestHalfway:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&lt;Data&gt;(
+    ctx: RenderContext&lt;Data&gt;,
+    item: DraggedItem&lt;Data&gt;,
+    rect: DOMRect|ClientRect,
+    clientOffset: Offset
+) &#x3D;&gt; {
+    const { hover } &#x3D; item;
+    const dim &#x3D; ctx.horizontal
+        ? (rect.width || rect.right - rect.left)
+        : (rect.height || rect.bottom - rect.top);
+    const start &#x3D; ctx.horizontal ? rect.left : rect.top;
+    const targetCentre &#x3D; start + dim / 2.0;
+    const mouse &#x3D; ctx.horizontal ? clientOffset.x : clientOffset.y;
+    const topHalf &#x3D; mouse &lt; targetCentre;
+    let suggestedIndex: number;
+    if (ctx.listId &#x3D;&#x3D;&#x3D; hover.listId) {
+        if (ctx.index &lt; hover.index) {
+            suggestedIndex &#x3D; topHalf ? ctx.index : ctx.index + 1;
+        } else {
+            suggestedIndex &#x3D; topHalf ? ctx.index - 1 : ctx.index;
+        }
+    } else {
+        // first hover on a different list;
+        // there is no relevant hover.index to compare to
+        suggestedIndex &#x3D; topHalf ? ctx.index : ctx.index + 1;
+    }
+    return suggestedIndex;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>src/spillTarget.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="SPILLED_LIST_ID"></a>
+                        <span class="name">
+                            <b>
+                            SPILLED_LIST_ID
+                            </b>
+                            <a href="#SPILLED_LIST_ID"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>SPILLED_LIST_ID:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Symbol(&quot;SPILLED_LIST_ID&quot;)</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="spillTarget"></a>
+                        <span class="name">
+                            <b>
+                            spillTarget
+                            </b>
+                            <a href="#spillTarget"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>spillTarget:     <code></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&lt;Data&gt;(
+    dnd: SkyhookDndService,
+    types: string|symbol|Array&lt;string|symbol&gt;|null,
+    config: SpillConfiguration&lt;Data&gt;,
+): DropTarget&lt;DraggedItem&lt;Data&gt;&gt; &#x3D;&gt; {
+
+    const mutate &#x3D; (item: DraggedItem&lt;Data&gt; | null) &#x3D;&gt;  {
+        if (!item) return null;
+        item.hover &#x3D; { listId: SPILLED_LIST_ID, index: -1 };
+        return { ...item };
+    }
+
+    const hover$ &#x3D; new Subject&lt;DraggedItem&lt;Data&gt; | null&gt;();
+
+    const target &#x3D; dnd.dropTarget&lt;DraggedItem&lt;Data&gt;&gt;(types, {
+        hover: monitor &#x3D;&gt; {
+            if (monitor.canDrop() &amp;&amp; monitor.isOver({ shallow: true })) {
+                const item &#x3D; mutate(monitor.getItem());
+                hover$.next(item);
+            } else {
+                hover$.next(null);
+            }
+        },
+        drop: config.drop &amp;&amp; (monitor &#x3D;&gt; {
+            const item &#x3D; mutate(monitor.getItem());
+            if (!monitor.didDrop()) {
+                config.drop &amp;&amp; item &amp;&amp; config.drop(item);
+            }
+        }) || undefined
+    });
+
+    const spilled$ &#x3D; hover$
+        .pipe(distinctUntilChanged(), filter(a &#x3D;&gt; !!a));
+
+    const subs &#x3D; spilled$.subscribe((item) &#x3D;&gt; {
+        config.hover &amp;&amp; item &amp;&amp; config.hover(item);
+    });
+
+    target.add(subs);
+    return target;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
