@@ -14,6 +14,7 @@ import { KanbanListComponent } from "./kanban-list/kanban-list.component";
 import { KanbanCardComponent } from "./kanban-card/kanban-card.component";
 import { AddCardComponent } from "./add-card.component";
 import { TrashCanComponent } from "./trash-can.component";
+import { CalendarComponent } from "./calendar.component";
 import { KanbanExternalComponent } from "./external.component";
 import { reducer } from './store';
 import { SortableSpecService } from './specs';
@@ -26,6 +27,7 @@ import { SortableSpecService } from './specs';
         KanbanCardComponent,
         AddCardComponent,
         TrashCanComponent,
+        CalendarComponent,
         KanbanExternalComponent,
     ],
     imports: [
