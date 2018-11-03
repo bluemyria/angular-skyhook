@@ -55,6 +55,13 @@ export function removeCard(board: KanbanBoard, listId: number, index: number) {
     });
 }
 
+export function updateCard(board: KanbanBoard, card: Card, listId: number, index: number) {
+    return updateCards(board, listId, cards => {
+        cards.splice(index, 1);
+        cards.splice(index, 0, card);
+    });
+}
+
 export function insertCard(board: KanbanBoard, card: Card, listId: number, index: number) {
     return updateCards(board, listId, cards => {
         cards.splice(index, 0, card);
@@ -70,8 +77,10 @@ export const initialBoard: KanbanBoard = [
             { id: 2, title: faker.lorem.sentence() },
             { id: 3, title: faker.lorem.sentence() },
             { id: 4, title: faker.lorem.sentence() },
-            { id: 5, title: "This card is a bigger than the other ones. "
-                + faker.lorem.sentence() + " " + faker.lorem.sentence() }
+            {
+                id: 5, title: "This card is a bigger than the other ones. "
+                    + faker.lorem.sentence() + " " + faker.lorem.sentence()
+            }
         ]
     },
     {

@@ -3,15 +3,16 @@ import { createSelector, createFeatureSelector } from "@ngrx/store";
 import { DraggedItem, SortableAction, SortableEvents } from "@angular-skyhook/sortable";
 
 // our list operations
-import { KanbanList, KanbanBoard, initialBoard, insertList, removeList, insertCard, removeCard } from './lists';
+import { KanbanList, KanbanBoard, initialBoard, insertList, removeList, insertCard, removeCard, updateCard } from './lists';
 import { Card } from "./card";
 
 export enum ActionTypes {
-    SortList   = "[Kanban] SortList",
-    SortCard   = "[Kanban] SortCard",
-    AddCard    = "[Kanban] AddCard",
+    SortList = "[Kanban] SortList",
+    SortCard = "[Kanban] SortCard",
+    AddCard = "[Kanban] AddCard",
+    UpdateCard = "[Kanban] UpdateCard",
     RemoveCard = "[Kanban] RemoveCard",
-    Spill      = "[Kanban] Spill",
+    Spill = "[Kanban] Spill",
 }
 
 // Define an action for each of the sortables your reducer will be handling
@@ -22,19 +23,23 @@ export type SortCard = SortableAction<ActionTypes.SortCard, Card>;
 // Some extra actions to do more things
 export class AddCard {
     readonly type = ActionTypes.AddCard;
-    constructor(public listId: number, public title: string) {}
+    constructor(public listId: number, public title: string) { }
 }
 export class RemoveCard {
     readonly type = ActionTypes.RemoveCard;
-    constructor(public item: DraggedItem<Card>) {}
+    constructor(public item: DraggedItem<Card>) { }
+}
+export class UpdateCard {
+    readonly type = ActionTypes.UpdateCard;
+    constructor(public item: DraggedItem<Card>) { }
 }
 export class Spill {
     readonly type = ActionTypes.Spill;
-    constructor(public item: DraggedItem<Card>) {}
+    constructor(public item: DraggedItem<Card>) { }
 }
 
 // Include all the above actions
-type Actions = SortList | SortCard | AddCard | RemoveCard | Spill;
+type Actions = SortList | SortCard | AddCard | UpdateCard | RemoveCard | Spill;
 
 export interface BoardState {
     /** This is the clean state, a list of KanbanList objects. */
@@ -87,8 +92,8 @@ const copyOrInsertCard = (state: BoardState, clonedCard: Card): BoardState => {
         if (state.isCopying) {
             nextId++;
             board = state.spilledCard
-                    ? state.board
-                    : insertCard(state.board, clonedCard, hover.listId, hover.index);
+                ? state.board
+                : insertCard(state.board, clonedCard, hover.listId, hover.index);
         } else {
             const either = state.draggingBoard || state.board;
             board = state.spilledCard
@@ -182,6 +187,19 @@ export function reducer(state: BoardState = initialState, action: Actions): Boar
             };
         }
 
+        case ActionTypes.UpdateCard: {
+            const { listId, index } = action.item;
+            const card: Card = {
+                id: action.item.data.id,
+                title: action.item.data.title + '_update',
+            };
+            console.log(action);
+            return {
+                ...resetDrag(state),
+                board: updateCard(state.board, card, listId, index),
+            };
+        }
+
         case ActionTypes.RemoveCard: {
             const { listId, index } = action.item;
             return {
@@ -199,13 +217,13 @@ export function reducer(state: BoardState = initialState, action: Actions): Boar
     }
 }
 
-const _boardState   = createFeatureSelector<BoardState>('kanban');
+const _boardState = createFeatureSelector<BoardState>('kanban');
 
-export const _isCopying    = createSelector(_boardState, s => s.isCopying);
+export const _isCopying = createSelector(_boardState, s => s.isCopying);
 export const _cardInFlight = createSelector(_boardState, state => state.cardInFlight);
 // produce a clone to be inserted into the board while dragging
 // a permanent one is created on drop
-export const _temporaryClone   = createSelector(
+export const _temporaryClone = createSelector(
     _isCopying,
     _cardInFlight,
     (copying, card) => (copying && card) ? cloneCard(card.data, CARD_ID_WHEN_COPYING) : null);

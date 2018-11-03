@@ -15,7 +15,7 @@ import { Card } from './card';
         [dropTarget]="target">
         <div>
             <i class="fas fa-calendar"></i>
-            <span>Drop here to schedule</span>
+            <span>Drop here to change title</span>
         </div>
         <div class="space" [ngStyle]="getStyle(c.isOver, c.item)"></div>
     </div>
@@ -40,8 +40,8 @@ import { Card } from './card';
     }
     .isOver {
         transition: transform 50ms ease-in;
-        background: rgba(255, 255, 255, 0.4);
-        transform: scale(1.2);
+        background: rgba(0, 0, 255, 0.4);
+        transform: scale(1.8);
     }
     `]
 })
@@ -62,6 +62,7 @@ export class CalendarComponent {
     constructor(private dnd: SkyhookDndService) { }
     getStyle(isOver: boolean, item: DraggedItem<Card>) {
         if (!isOver || !item) { return {} }
+        //console.log(item.size.style());
         return {
             ...item.size.style(),
             transition: 'all 50ms ease-in'
