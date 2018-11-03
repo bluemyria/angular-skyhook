@@ -2,7 +2,7 @@ import { Component, Input, ChangeDetectionStrategy } from "@angular/core";
 import { DraggedItem } from "@angular-skyhook/sortable";
 import { Card } from "../card";
 import { ItemTypes } from "../item-types";
-import { AddCard, UpdateCard, RemoveCard } from "../store";
+import { AddCard, UpdateCard, RemoveCard, ScheduleCard } from "../store";
 import { Store } from '@ngrx/store';
 import { SortableSpecService } from '../specs';
 
@@ -30,5 +30,9 @@ export class KanbanBoardComponent {
 
     updateCard(ev: DraggedItem<Card>) {
         this.store.dispatch(new UpdateCard(ev));
+    }
+
+    scheduleCard(ev: DraggedItem<Card>) {
+        this.store.dispatch(new ScheduleCard(ev));
     }
 }

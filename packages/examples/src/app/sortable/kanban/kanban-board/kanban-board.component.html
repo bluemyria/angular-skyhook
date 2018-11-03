@@ -55,11 +55,15 @@
 
 </skyhook-sortable-list>
 
+<div class="time-zone">
+    <kanban-calendar (dropped)="updateCard($event)"></kanban-calendar>
+</div>
 
+<div class="day-zone">
+    <kanban-day (dropped)="scheduleCard($event)"></kanban-day>
+</div>
 
 <div class="trash-zone">
-
-    <kanban-calendar (dropped)="updateCard($event)"></kanban-calendar>
     <kanban-trash-can (dropped)="removeCard($event)"></kanban-trash-can>
     <kanban-external></kanban-external>
 </div>

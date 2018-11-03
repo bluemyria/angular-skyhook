@@ -6,32 +6,35 @@ import { Output } from "@angular/core";
 import { Card } from './card';
 
 @Component({
-    selector: 'kanban-calendar',
+    selector: 'kanban-day',
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
     <div *ngIf="collect$|async as c"
-        class="calendar"
+        class="day"
         [class.isOver]="c.isOver"
         [dropTarget]="target">
         <div>
             <i class="fas fa-calendar"></i>
-            <span>Drop here to change title</span>
+            <span>Drop here to schedule</span>
         </div>
-        <div class="space" [ngStyle]="getStyle(c.isOver, c.item)"></div>
+        <!--div class="space" [ngStyle]="getStyle(c.isOver, c.item)"></div-->
     </div>
     `,
     styles: [`
     .fas { margin-right: 8px; }
-    .calendar {
+    .day {
+        position: relative;
         margin: 8px;
         padding: 8px;
         font-weight: 700;
         text-shadow: 1px 1px rgba(255,255,255,0.2);
         border-radius: 4px;
-        border: 1px dashed #333;
+        border: 1px dashed #000;
         text-align: center;
-        transform-origin: 100% 0%;
-        transition: transform 50ms ease-out;
+        height: 300px;
+        width: 250px;
+        //transform-origin: 100% 100%;
+        //transition: transform 50ms ease-out;
     }
     .space {
         height: 0;
@@ -39,13 +42,13 @@ import { Card } from './card';
         transition: all 50ms ease-out;
     }
     .isOver {
-        transition: transform 50ms ease-in;
-        background: rgba(0, 0, 255, 0.4);
-        transform: scale(1.8);
+        //transition: transform 50ms ease-in;
+        background: rgba(241, 152, 207, 0.7);
+        //transform: scale(1.8);
     }
     `]
 })
-export class CalendarComponent {
+export class DayComponent {
     @Output() dropped = new EventEmitter<DraggedItem<Card>>();
     target = this.dnd.dropTarget<DraggedItem<Card>>(ItemTypes.CARD, {
         canDrop: monitor => {

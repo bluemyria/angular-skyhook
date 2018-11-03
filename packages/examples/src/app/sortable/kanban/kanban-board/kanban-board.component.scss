@@ -21,3 +21,17 @@
     text-align: right;
 }
 
+.time-zone {
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: right;
+}
+
+.day-zone {
+    position: absolute;
+    right: 0;
+    top: 80px;
+    background: rgba($color: #f591cb, $alpha: 0.67);
+    //text-align: right;
+}

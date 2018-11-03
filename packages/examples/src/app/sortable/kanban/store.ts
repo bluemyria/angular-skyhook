@@ -12,6 +12,7 @@ export enum ActionTypes {
     AddCard = "[Kanban] AddCard",
     UpdateCard = "[Kanban] UpdateCard",
     RemoveCard = "[Kanban] RemoveCard",
+    ScheduleCard = "[Kanban] ScheduleCard",
     Spill = "[Kanban] Spill",
 }
 
@@ -33,13 +34,17 @@ export class UpdateCard {
     readonly type = ActionTypes.UpdateCard;
     constructor(public item: DraggedItem<Card>) { }
 }
+export class ScheduleCard {
+    readonly type = ActionTypes.ScheduleCard;
+    constructor(public item: DraggedItem<Card>) { }
+}
 export class Spill {
     readonly type = ActionTypes.Spill;
     constructor(public item: DraggedItem<Card>) { }
 }
 
 // Include all the above actions
-type Actions = SortList | SortCard | AddCard | UpdateCard | RemoveCard | Spill;
+type Actions = SortList | SortCard | AddCard | UpdateCard | RemoveCard | ScheduleCard | Spill;
 
 export interface BoardState {
     /** This is the clean state, a list of KanbanList objects. */
@@ -205,6 +210,19 @@ export function reducer(state: BoardState = initialState, action: Actions): Boar
             return {
                 ...resetDrag(state),
                 board: removeCard(state.board, listId, index),
+            };
+        }
+
+        case ActionTypes.ScheduleCard: {
+            const { listId, index } = action.item;
+            const card: Card = {
+                id: action.item.data.id,
+                title: action.item.data.title + '_scheduled',
+            };
+            console.log(action);
+            return {
+                ...resetDrag(state),
+                board: updateCard(state.board, card, listId, index),
             };
         }
 
