@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, NgZone } from '@angular/core';
-import { Observable ,  Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-box-drag-preview',
@@ -16,7 +16,7 @@ import { Observable ,  Subject } from 'rxjs';
     }
     .phresh {
       background: white;
-      transform: rotate(-10deg);
+      //transform: rotate(-10deg);
       overflow: hidden;
       animation-name: animatedBackground;
       animation-duration: 0.7s;
@@ -29,7 +29,7 @@ import { Observable ,  Subject } from 'rxjs';
 export class BoxDragPreviewComponent implements OnInit {
   @Input() title;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
   }
