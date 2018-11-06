@@ -5,3 +5,10 @@ export interface Card {
 }
 
 export type Cards = ReadonlyArray<Card>;
+
+export interface ScheduledCard {
+    id: number;
+    title: string;
+}
+
+export type ScheduledCards = ReadonlyArray<ScheduledCard>;
